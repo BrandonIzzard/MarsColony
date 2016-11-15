@@ -9,8 +9,8 @@ import { Colonist, Job } from '../models';
 })
 export class RegisterComponent implements OnInit {
 
-	colonist = Colonist;
-	marsJobs = [Job];
+	colonist : Colonist;
+	marsJobs : [Job];
 	JOBS_JSON = 'https://red-wdp-api.herokuapp.com/api/mars/jobs';
 
   constructor() {
