@@ -1,3 +1,25 @@
-<p>
-  register works!
-</p>
+<div class="register-page">
+	<div>
+		<h1>
+			Register
+			{{ colonist.name }} {{ colonist.age }}
+		</h1>
+	</div>
+	<div class="register-info">
+		<form class="mars-form">
+			<div>
+				<input type="text" placeholder="Name"  [(ngModel)]="colonist.name" name="name" />
+				<input type="number" placeholder="Age" [(ngModel)]="colonist.age" name="age" />
+
+				<select class="select-job" name="Job" placeholder= "Occupation">
+					<option value="" disabled selected>Select Occupation</option>
+				</select>
+			</div>
+		</form>
+		<div class="checkin">
+			<button class="button">Check in</button>
+		</div>
+		
+
+	</div>
+</div>

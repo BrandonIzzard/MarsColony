@@ -1,0 +1,66 @@
+.register-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	background: #000;
+	height: 100vh;
+	width: 100%;
+
+}
+.button, input {
+	font-size: 2rem;
+
+}
+
+.mars-form {
+	line-height: 2;
+}
+
+.register-info {
+	margin: 1rem 2rem;
+}
+
+h1 {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 3rem;
+	padding: 2rem 1rem;
+	color: white;
+}
+
+input  {
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: 0 0;
+	color: red;
+	width: 99%;
+	padding-left: 6px;
+	margin-right: 1rem; 
+}
+
+.checkin {
+	text-align: center;
+	padding-top: 2rem;
+}
+.button {
+    padding: 1rem 2rem;
+    background: #000;
+    border: none;
+    font-weight: 100;
+    font-size: 2rem;
+    text-align: center;
+    color: white;
+}
+.select-job {
+	
+	width: 100%;
+	height: 3rem;
+	background: 0 0;
+	color: red;
+	border: 1px solid transparent;
+	border-bottom: 1px solid #fff;
+	font-size: 2rem;
+}
+input::-webkit-input-placeholder { 
+  color: red;
+}

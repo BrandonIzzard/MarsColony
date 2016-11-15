@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Colonist, Job } from '../models';
+
 
 @Component({
   selector: 'app-register',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+	colonist = Colonist;
+	marsJobs = [Job];
+	JOBS_JSON = 'https://red-wdp-api.herokuapp.com/api/mars/jobs';
+
+  constructor() {
+  	this.colonist = new Colonist('', null, null, null);
+   }
 
   ngOnInit() {
   }

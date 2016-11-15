@@ -1,4 +1,11 @@
-<h1>
-  {{title}}
-<router-outlet></router-outlet>
-</h1>
+
+<nav> 
+	<a routerLink="" routerLinkActive="active">Welcome</a>
+	<a routerLink="/Register" routerLinkActive="active">Register</a>
+	<a routerLink="/Encounters" routerLinkActive="active">Encounters</a>
+	<a routerLink="/Report" routerLinkActive="active">Report</a>
+</nav>
+<div class="container">	
+	<router-outlet></router-outlet>
+
+</div>
