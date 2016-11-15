@@ -1,3 +1,4 @@
+
 export class Encounter {
 	constructor (
 		public id: number,
@@ -8,20 +9,20 @@ export class Encounter {
 		) {}
 }
 
-export class Colonist {
-	constructor (
-		public name: string,
-		public job: number,
-		public id: number,
-		public age: number,
-		) {}
-}
-
 export class Job {
 	constructor (
 		public name: string,
 		public id: number,
 		public description: string
+		) {}
+}
+
+export class Colonist {
+	constructor (
+		public name: string,
+		public job: Job,
+		public id: number,
+		public age: number,
 		) {}
 }
 
