@@ -6,7 +6,7 @@ import { Job } from '../models';
 
 
 @Injectable()
-export class JobsService {
+export default class JobsService {
 
 
 	JOBS_JSON = 'https://red-wdp-api.herokuapp.com/api/mars/jobs';
@@ -14,9 +14,9 @@ export class JobsService {
 
 	constructor(private http: Http) { }
 
-	getJobs(): Observable<Response> {
+	getJobs(): Observable<Job[]> {
 		return this.http.get(this.JOBS_JSON)
-						.map((res: Response) => res.json());
+						.map((res: Response) => res.json().jobs);
 	}
 
 }

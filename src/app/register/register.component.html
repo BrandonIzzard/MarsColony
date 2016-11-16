@@ -2,7 +2,7 @@
 	<div>
 		<h1>
 			Register
-			{{ colonist.name }} {{ colonist.age }}
+			{{ colonist.name }} | {{ colonist.age }} | {{colonist.job_id}}
 		</h1>
 	</div>
 	<div class="register-info">
@@ -11,15 +11,14 @@
 				<input type="text" placeholder="Name"  [(ngModel)]="colonist.name" name="name" />
 				<input type="number" placeholder="Age" [(ngModel)]="colonist.age" name="age" />
 
-				<select class="select-job" name="Job" placeholder= "Occupation">
-					<option value="" disabled selected>Select Occupation</option>
+				<select [(ngModel)]="colonist.job_id"  class="select-job" name="job_id" placeholder= "Occupation">
+					<option  [value]="NO_JOB_SELECTED" selected disabled>-- Select Occupation --</option>
+					<option *ngFor="let job of marsJobs" [value]="job.id">{{ job.name }}</option>
 				</select>
 			</div>
 		</form>
 		<div class="checkin">
-			<button class="button">Check in</button>
+			<button [disabled]="!jobSelected" class="button">Check in</button>
 		</div>
-		
-
 	</div>
 </div>
