@@ -35,23 +35,43 @@ export class RegisterComponent implements OnInit {
         });
     }
 
-    onSubmit(event) {
-        event.preventDefault();
-    }
+
     cantBe(value: string): ValidatorFn {
         return (control: AbstractControl): { [key: string]: any } => {
             return control.value === value ? { 'cant be none': { value } } : null;
         };
     }
+    tooOld(value: number): ValidatorFn {
+        return (control: AbstractControl): { [key: string]: any } => {
+            return control.value > 184 ? { 'too old': { value } } : null;
+        };
+    }
+
     ngOnInit() {
 
         this.registerForm = new FormGroup({
             name: new FormControl('', [Validators.required, Validators.minLength(2)]),
-            age: new FormControl('', [Validators.required, Validators.maxLength(3)]),
-            job_id: new FormControl('(none)', [this.cantBe(this.NO_JOB_SELECTED)])
+            age: new FormControl('', [Validators.required, this.tooOld(184)]),
+            job_id: new FormControl(this.NO_JOB_SELECTED, [this.cantBe(this.NO_JOB_SELECTED)])
         });
     }
 
+
+    onSubmit(event) {
+        event.preventDefault();
+        console.log(this.registerForm);
+        if (this.registerForm.invalid) {
+
+        }
+        else {
+            const name = this.registerForm.get('name').value;
+            const age = this.registerForm.get('age').value;
+            const job_id = this.registerForm.get('job_id').value;
+
+            console.log('Ok, let\'s register this new colonist', new NewColonist(name, age, job_id));
+        }
+
+    }
 }
   // get jobSelected() {
   //   return this.colonist.job_id !== this.NO_JOB_SELECTED;

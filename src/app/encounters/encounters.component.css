@@ -9,6 +9,8 @@
 
 .encounter-journal {
     color: white;
+    overflow-y: scroll;
+    height: 60vh;
     
 }
 

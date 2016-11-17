@@ -1,5 +1,6 @@
-
-<select  name="type" placeholder="Alien Type">
+<form>
+	<select name="type" placeholder="Alien Type">
 					<option>Select Alien </option>
-					<option *ngFor="let alien of marsAliens" [value]="type">{{ alien }}</option>
-				</select>
+					<option *ngFor="let alien of marsAliens" [value]="type">{{ alien.type }}</option>
+	</select>
+</form>
