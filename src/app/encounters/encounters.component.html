@@ -1,3 +1,17 @@
-<p>
-  encounters works!
-</p>
+<div class="encounter-page">
+
+	<header>
+
+		<h1>Recent Encouters!</h1>
+
+	</header>
+	
+	<div class="encounter-journal">
+		<ul>
+			<li *ngFor="let encounter of marsEncounters" class="encounter-post">
+				<div>{{encounter.id}} {{encounter.date}} {{encounter.colonist_id}} {{encounter.atype}}</div>
+				<div> {{encounter.action}} </div>
+			</li>
+		</ul>
+	</div>
+</div>

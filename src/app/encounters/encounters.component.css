@@ -1,0 +1,18 @@
+.encounter-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background: #000;
+
+}
+
+.encounter-journal {
+    color: white;
+    
+}
+
+.encounter-post {
+    
+    margin-bottom: 1rem;
+}

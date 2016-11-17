@@ -1,3 +1,5 @@
-<p>
-  report works!
-</p>
+
+<select  name="type" placeholder="Alien Type">
+					<option>Select Alien </option>
+					<option *ngFor="let alien of marsAliens" [value]="type">{{ alien }}</option>
+				</select>
