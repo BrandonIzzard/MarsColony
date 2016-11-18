@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Encounter } from '../models';
+import { Encounter, NewEncounter } from '../models';
 import EncounterService from '../services/encounters.service';
 
 @Component({
@@ -11,15 +11,18 @@ import EncounterService from '../services/encounters.service';
 })
 export class EncountersComponent implements OnInit {
 
-  encounter: Encounter;
-  marsEncounters: Encounter[];
+  encounter: NewEncounter;
+  marsEncounters: NewEncounter[];
 
 
-  constructor(encounterService: EncounterService) { 
-    this.encounter = new Encounter(null, null, null, null, null);
+  constructor(encounterService: EncounterService) {
+    this.encounter = new NewEncounter(null, null, null, null);
     encounterService.getEncounters().subscribe((encounters) => {
-      this.marsEncounters = encounters;
-      console.log(this.marsEncounters)
+      this.marsEncounters = encounters.sort((a, b) => {
+        return b.id - a.id;
+      })
+        .splice(0, 100);
+
     }, (err) => {
       console.log(err);
     });
@@ -29,3 +32,4 @@ export class EncountersComponent implements OnInit {
   }
 
 }
+

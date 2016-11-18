@@ -1,6 +1,21 @@
-<form>
-	<select name="type" placeholder="Alien Type">
-					<option>Select Alien </option>
-					<option *ngFor="let alien of marsAliens" [value]="type">{{ alien.type }}</option>
+<div class="encounter-form">
+
+  <form [formGroup]="reportForm" (ngSubmit)="onSubmit($event)">
+
+    <select formControlName="atype" placeholder="Alien Type" >
+
+					<option [value]="NO_ALIEN_SELECTED" selected disabled>Select Alien </option>
+
+					<option *ngFor="let alien of marsAliens" [value]="alien.type">{{ alien.type }}</option>
+
 	</select>
-</form>
+
+    <textarea rows="10" cols="" formControlName="action" placeholder="Action Taken">
+
+	</textarea>
+
+    <button>Report Alien</button>
+
+  </form>
+
+</div>

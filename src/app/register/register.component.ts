@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { NewColonist, Job } from '../models';
 import JobsService from '../services/jobs.service';
+import { cantBe } from '../shared/validators';
 
 const notNone = (value) => {
     return value === '(none)' ? false : true;  //ternary function?
@@ -24,7 +25,7 @@ export class RegisterComponent implements OnInit {
 
     NO_JOB_SELECTED = '(none)';
 
-    constructor(public jobService: JobsService) {
+    constructor( jobService: JobsService) {
         // this.colonist = new NewColonist(null, null, this.NO_JOB_SELECTED); --- before FormGroup
 
         //  asynchronus API request.
@@ -36,11 +37,7 @@ export class RegisterComponent implements OnInit {
     }
 
 
-    cantBe(value: string): ValidatorFn {
-        return (control: AbstractControl): { [key: string]: any } => {
-            return control.value === value ? { 'cant be none': { value } } : null;
-        };
-    }
+
     tooOld(value: number): ValidatorFn {
         return (control: AbstractControl): { [key: string]: any } => {
             return control.value > 184 ? { 'too old': { value } } : null;
@@ -52,7 +49,7 @@ export class RegisterComponent implements OnInit {
         this.registerForm = new FormGroup({
             name: new FormControl('', [Validators.required, Validators.minLength(2)]),
             age: new FormControl('', [Validators.required, this.tooOld(184)]),
-            job_id: new FormControl(this.NO_JOB_SELECTED, [this.cantBe(this.NO_JOB_SELECTED)])
+            job_id: new FormControl(this.NO_JOB_SELECTED, [cantBe(this.NO_JOB_SELECTED)])
         });
     }
 
